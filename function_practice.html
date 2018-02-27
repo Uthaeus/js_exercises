@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<title>Function Practice</title>
+	</head>
+	<body>
+		
+		<h2>Enter a Number</h2>
+		<input type='text' class='add-seven'><br />
+		<br />
+		<h2>Multiply two numbers</h2>
+		<input type='text' class='multiply1'><br />
+		<input type='text' class='multiply2'><br />
+		<br />
+		<h2>Capitalize a string</h2>
+		<input type='text' class='cap'><br />
+		<br />
+		<h2>Return the last letter of a string</h2>
+		<input type='text' class='last'><br />
+		<p></p>
+
+		<script>
+			var input = document.querySelector('.add-seven');
+			let input1 = document.querySelector('.multiply1');
+			let input2 = document.querySelector('.multiply2');
+			let input3 = document.querySelector('.cap');
+			let input4 = document.querySelector('.last');
+			var para = document.querySelector('p');
+			function add7(num) {
+				return +num + 7;
+			}
+			function multiply(a, b) {
+				return a * b;
+			}
+			function capitalize(str) {
+				let first = str.toUpperCase().slice(0,1);
+				let rest = str.toLowerCase().slice(1);
+				let result = first + rest; 
+				return result; 
+			}
+			function lastLetter(str) {
+				return str.slice(-1);
+			}
+			input.onchange = function() {
+				var num = input.value;
+				if (isNaN(num)) {
+					para.textContent = "You need to enter a number!";
+				} else {
+					para.textContent = num + ' plus 7 is ' + add7(num);
+				}
+			}
+			input2.onchange = function() {
+				var num1 = input1.value;
+				var num2 = input2.value;
+				if (isNaN(num1) || isNaN(num2)) {
+					para.textContent = "Only numbers, please.";
+				} else {
+					para.textContent = num1 + " multiplied by " + num2 + ' is ' + multiply(num1, num2);
+				}
+			}
+			input3.onchange = function() {
+				var str1 = input3.value;
+				para.textContent = capitalize(str1);
+			}
+			input4.onchange = function() {
+				var str2 = input4.value;
+				para.textContent = lastLetter(str2);
+			}
+		</script>
+	</body>
+</html>
+
